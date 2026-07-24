@@ -64,7 +64,7 @@ const CONTENT = {
     // Drohnen-Rundflug-Video (POI-Umkreisung ums Haus) – Embed-Link eintragen.
     // Beispiel YouTube: "https://www.youtube.com/embed/VIDEO_ID"
     // Beispiel Vimeo:   "https://player.vimeo.com/video/VIDEO_ID"
-    droneVideoUrl: "",
+    droneVideoUrl: "https://www.youtube.com/embed/Llq3prdaClg",
 
     // Vorschaubild fürs Video, bevor draufgeklickt wird (z.B. die aerial-URL
     // oben nochmal, oder ein eigenes Standbild aus dem Video).
