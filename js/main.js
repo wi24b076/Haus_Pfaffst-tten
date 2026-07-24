@@ -194,10 +194,19 @@
 
   const panoramaEl = document.getElementById("panorama");
   const panoramaFullscreenBtn = document.getElementById("panorama-fullscreen");
+  const panoramaHint = document.getElementById("panorama-hint");
 
   function panoramaUnavailable(message) {
     panoramaEl.innerHTML = `<div class="video-placeholder">${message}</div>`;
     panoramaFullscreenBtn.style.display = "none";
+  }
+
+  function showSwipeHint() {
+    panoramaHint.classList.remove("hidden");
+    const hide = () => panoramaHint.classList.add("hidden");
+    panoramaEl.addEventListener("mousedown", hide, { once: true });
+    panoramaEl.addEventListener("touchstart", hide, { once: true, passive: true });
+    setTimeout(hide, 4000);
   }
 
   if (!c.media.panoramaUrl) {
@@ -207,6 +216,7 @@
     img.onload = () => {
       if (window.pannellum) {
         initPanorama("panorama", true);
+        showSwipeHint();
       } else {
         panoramaUnavailable("⚠️ Der 360°-Viewer konnte nicht geladen werden (Internetverbindung/Blocker prüfen).");
       }
