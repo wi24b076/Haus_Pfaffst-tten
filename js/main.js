@@ -3,9 +3,9 @@
 
   const c = CONTENT;
 
-  // --- Bild-Fallback: fehlt eine Datei noch, zeigen wir einen Platzhalter
-  // statt eines kaputten Bild-Icons. Sobald du die echte Datei in media/
-  // mit dem passenden Namen ablegst, erscheint sie automatisch. ---
+  // --- Bild-Fallback: fehlt noch eine URL oder ist sie nicht erreichbar,
+  // zeigen wir einen Platzhalter statt eines kaputten Bild-Icons. Sobald
+  // die echte URL in js/config.js eingetragen ist, erscheint sie automatisch. ---
   function withFallback(img) {
     img.addEventListener(
       "error",
@@ -17,7 +17,6 @@
       { once: true }
     );
   }
-  document.querySelectorAll("img").forEach(withFallback);
 
   // --- Mobile Burger-Menü ---
   const navToggle = document.getElementById("nav-toggle");
@@ -41,6 +40,18 @@
 
   const priceEl = document.getElementById("price");
   priceEl.textContent = c.price;
+
+  // Hero-Bild = erstes Galerie-Foto (i.d.R. die Frontansicht)
+  const heroImage = document.getElementById("hero-image");
+  const heroSource = c.media.gallery.find((item) => item.url);
+  if (heroSource) {
+    heroImage.src = heroSource.url;
+    heroImage.alt = heroSource.alt;
+    withFallback(heroImage);
+  } else {
+    heroImage.closest(".hero").classList.add("img-missing");
+    heroImage.style.background = "#8a9186";
+  }
 
   // Highlights
   const highlightsList = document.getElementById("highlights-list");
@@ -90,10 +101,32 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // --- Galerie: Kacheln aus config.js rendern ---
+  const galleryEl = document.getElementById("gallery");
+  const galleryItems = c.media.gallery.filter((item) => item.url);
+  if (galleryItems.length) {
+    galleryItems.forEach((item) => {
+      const figure = document.createElement("figure");
+      figure.className = "gallery-item";
+      figure.dataset.full = item.url;
+      const img = document.createElement("img");
+      img.src = item.url;
+      img.alt = item.alt;
+      img.loading = "lazy";
+      withFallback(img);
+      const figcaption = document.createElement("figcaption");
+      figcaption.textContent = item.caption;
+      figure.append(img, figcaption);
+      galleryEl.appendChild(figure);
+    });
+  } else {
+    galleryEl.innerHTML = `<p class="contact-placeholder">Fotos folgen in Kürze.</p>`;
+  }
+
   // --- Galerie Lightbox ---
   const lightbox = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightbox-image");
-  document.querySelectorAll(".gallery-item").forEach((item) => {
+  galleryEl.querySelectorAll(".gallery-item").forEach((item) => {
     item.addEventListener("click", () => {
       lightboxImage.src = item.dataset.full;
       lightboxImage.alt = item.querySelector("img").alt;
@@ -126,10 +159,12 @@
   }
 
   if (c.media.droneVideoUrl) {
+    const posterUrl =
+      c.media.droneVideoPosterUrl || (c.media.gallery.find((i) => i.key === "aerial") || {}).url;
     const facade = document.createElement("button");
     facade.type = "button";
     facade.className = "video-facade";
-    facade.style.backgroundImage = `url('${c.media.aerial}')`;
+    if (posterUrl) facade.style.backgroundImage = `url('${posterUrl}')`;
     facade.setAttribute("aria-label", "Video abspielen: Drohnen-Rundflug");
     facade.innerHTML = `<span class="play-btn">▶</span>`;
     facade.addEventListener(
@@ -149,7 +184,7 @@
   function initPanorama(containerId, autoLoad) {
     return window.pannellum.viewer(containerId, {
       type: "equirectangular",
-      panorama: c.media.panorama,
+      panorama: c.media.panoramaUrl,
       autoLoad: autoLoad,
       compass: false,
       showZoomCtrl: true,
@@ -165,18 +200,22 @@
     panoramaFullscreenBtn.style.display = "none";
   }
 
-  const img = new Image();
-  img.onload = () => {
-    if (window.pannellum) {
-      initPanorama("panorama", true);
-    } else {
-      panoramaUnavailable("⚠️ Der 360°-Viewer konnte nicht geladen werden (Internetverbindung/Blocker prüfen).");
-    }
-  };
-  img.onerror = () => {
-    panoramaUnavailable(`🌐 Das 360°-Foto wird in Kürze ergänzt.<br />(Datei als <code>${c.media.panorama}</code> ablegen.)`);
-  };
-  img.src = c.media.panorama;
+  if (!c.media.panoramaUrl) {
+    panoramaUnavailable("🌐 Das 360°-Foto wird in Kürze ergänzt.<br />(URL in <code>js/config.js</code> unter <code>media.panoramaUrl</code> eintragen.)");
+  } else {
+    const img = new Image();
+    img.onload = () => {
+      if (window.pannellum) {
+        initPanorama("panorama", true);
+      } else {
+        panoramaUnavailable("⚠️ Der 360°-Viewer konnte nicht geladen werden (Internetverbindung/Blocker prüfen).");
+      }
+    };
+    img.onerror = () => {
+      panoramaUnavailable("⚠️ Das 360°-Foto konnte nicht geladen werden (Link in <code>js/config.js</code> prüfen).");
+    };
+    img.src = c.media.panoramaUrl;
+  }
 
   document.getElementById("panorama-fullscreen").addEventListener("click", () => {
     const modal = document.getElementById("panorama-modal");
