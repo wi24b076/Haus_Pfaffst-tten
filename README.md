@@ -8,7 +8,7 @@ Statische Einseiten-Webseite (reines HTML/CSS/JS, kein Build-Schritt nötig) zum
 - `css/styles.css` – Design
 - `js/config.js` – **alle Inhalte** (Preis, Adresse, Eckdaten, Geschichte, Kontakt, Medien-Pfade) – hier anpassen
 - `js/main.js` – Logik (Galerie, Video, 360°-Viewer)
-- `media/` – Fotos (siehe `media/README.md` für erwartete Dateinamen)
+- `media/README.md` – Fotos/Video werden extern gehostet, Zuordnung zu `js/config.js` steht dort
 
 ## Lokal ansehen
 
@@ -22,4 +22,4 @@ Dann im Browser `http://localhost:8000` öffnen.
 
 ## Inhalte anpassen
 
-Alles Inhaltliche (Preis, Eckdaten, Geschichte/Renovierungen, Kontaktdaten, Video-Link) wird zentral in `js/config.js` gepflegt. Fotos einfach mit den in `media/README.md` genannten Dateinamen in `media/` ablegen.
+Alles Inhaltliche (Preis, Eckdaten, Geschichte/Renovierungen, Kontaktdaten) sowie alle Medien-Links (Fotos, 360°-Foto, Video) werden zentral in `js/config.js` gepflegt. Fotos/Video liegen extern (siehe `media/README.md`), es wird nur die jeweilige URL eingetragen.

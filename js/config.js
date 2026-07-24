@@ -46,17 +46,28 @@ const CONTENT = {
   },
 
   // --- Medien ---
-  // Bilder einfach mit exakt diesem Dateinamen in den Ordner "media/" legen.
+  // Alle Fotos/Videos sind zu groß für Git und werden extern gehostet
+  // (z.B. Imgur/eigener Cloud-Speicher für Fotos, YouTube "nicht gelistet"
+  // für das Video). Hier einfach die jeweilige Direkt-URL eintragen.
   media: {
-    front: "media/front.jpg", // Bild von vorne
-    back: "media/back-garden.jpg", // Bild von hinten + Garten
-    aerial: "media/aerial.jpg", // Bild von oben
-    panorama: "media/panorama-360.jpg", // 360°-Foto (Equirectangular, Verhältnis 2:1)
+    gallery: [
+      { key: "front", url: "", alt: "Hausansicht von vorne", caption: "Von vorne" },
+      { key: "back-garden-1", url: "", alt: "Hausansicht von hinten mit Garten", caption: "Von hinten & Garten" },
+      { key: "back-garden-2", url: "", alt: "Hausansicht von hinten mit Garten", caption: "Von hinten & Garten" },
+      { key: "back-garden-angled", url: "", alt: "Hausansicht von hinten mit Garten, seitlich", caption: "Von hinten & Garten (seitlich)" },
+      { key: "aerial", url: "", alt: "Luftaufnahme des Hauses von oben", caption: "Von oben" },
+    ],
 
-    // Drohnen-Rundflug-Video: da zu groß für Git, bitte extern hosten
-    // (z.B. YouTube "nicht gelistet" oder Vimeo) und hier den Embed-Link eintragen.
+    // 360°-Foto (Equirectangular, Seitenverhältnis 2:1) – Direkt-Link zur Bilddatei.
+    panoramaUrl: "",
+
+    // Drohnen-Rundflug-Video (POI-Umkreisung ums Haus) – Embed-Link eintragen.
     // Beispiel YouTube: "https://www.youtube.com/embed/VIDEO_ID"
     // Beispiel Vimeo:   "https://player.vimeo.com/video/VIDEO_ID"
     droneVideoUrl: "",
+
+    // Vorschaubild fürs Video, bevor draufgeklickt wird (z.B. die aerial-URL
+    // oben nochmal, oder ein eigenes Standbild aus dem Video).
+    droneVideoPosterUrl: "",
   },
 };

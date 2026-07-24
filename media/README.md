@@ -1,20 +1,19 @@
-# Medien-Ordner
+# Medien: extern gehostet
 
-Lege die Fotos hier **exakt mit diesen Dateinamen** ab – die Webseite bindet sie automatisch ein, es muss kein Code geändert werden:
+Die Fotos und das Video sind zu groß für Git und werden **nicht** in diesem Repo abgelegt. Stattdessen extern hochladen (z.B. Foto-Hosting/eigener Cloud-Speicher für Bilder, YouTube "nicht gelistet" oder Vimeo für das Video) und die Direkt-Links in [`js/config.js`](../js/config.js) eintragen.
 
-| Datei | Inhalt |
+## Zuordnung deiner Dateien → config.js
+
+| Deine Datei | Ziel in `js/config.js` |
 |---|---|
-| `front.jpg` | Hausansicht von vorne |
-| `back-garden.jpg` | Hausansicht von hinten inkl. Garten |
-| `aerial.jpg` | Ansicht von oben (Drohne) |
-| `panorama-360.jpg` | 360°-Foto, **equirectangular**, Seitenverhältnis 2:1 (z.B. 6000×3000 px) |
+| `FrontView` | `media.gallery[0].url` (key: `front`) |
+| `BackViewWithGarden` | `media.gallery[1].url` (key: `back-garden-1`) |
+| `BackViewWithGarden2` | `media.gallery[2].url` (key: `back-garden-2`) |
+| `BackViewWithGardenAngled` | `media.gallery[3].url` (key: `back-garden-angled`) |
+| `TopDownView` | `media.gallery[4].url` (key: `aerial`) |
+| `360Degree` | `media.panoramaUrl` (equirectangular, Seitenverhältnis 2:1) |
+| `POIFly` (Drohnen-Rundflug-Video) | `media.droneVideoUrl` – als **Embed-Link**, z.B.: `https://www.youtube.com/embed/VIDEO_ID` oder `https://player.vimeo.com/video/VIDEO_ID` |
 
-## Drohnen-Rundflug-Video
+Optional: `media.droneVideoPosterUrl` für ein eigenes Vorschaubild vor dem Video – sonst wird automatisch die `aerial`-URL (TopDownView) verwendet.
 
-Das Video ist zu groß für Git und wird **nicht** hier abgelegt. Stattdessen extern hochladen (z.B. YouTube als "nicht gelistet", oder Vimeo) und den Embed-Link in `js/config.js` unter `media.droneVideoUrl` eintragen, z.B.:
-
-```js
-droneVideoUrl: "https://www.youtube.com/embed/VIDEO_ID",
-```
-
-Bis dahin zeigt die Seite automatisch einen Platzhalter im Rundflug-Bereich.
+Solange ein Feld leer ist, zeigt die Seite an der jeweiligen Stelle automatisch einen Platzhalter ("folgt in Kürze") statt eines kaputten Links.
