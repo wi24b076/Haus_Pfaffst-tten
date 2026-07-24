@@ -51,15 +51,15 @@ const CONTENT = {
   // für das Video). Hier einfach die jeweilige Direkt-URL eintragen.
   media: {
     gallery: [
-      { key: "front", url: "", alt: "Hausansicht von vorne", caption: "Von vorne" },
-      { key: "back-garden-1", url: "", alt: "Hausansicht von hinten mit Garten", caption: "Von hinten & Garten" },
-      { key: "back-garden-2", url: "", alt: "Hausansicht von hinten mit Garten", caption: "Von hinten & Garten" },
-      { key: "back-garden-angled", url: "", alt: "Hausansicht von hinten mit Garten, seitlich", caption: "Von hinten & Garten (seitlich)" },
-      { key: "aerial", url: "", alt: "Luftaufnahme des Hauses von oben", caption: "Von oben" },
+      { key: "front", url: "https://i.imgur.com/FUThtA6.jpg", alt: "Hausansicht von vorne", caption: "Von vorne" },
+      { key: "back-garden-1", url: "https://i.imgur.com/xnoib14.jpg", alt: "Hausansicht von hinten mit Garten", caption: "Von hinten & Garten" },
+      { key: "back-garden-2", url: "https://i.imgur.com/f2iN69D.jpg", alt: "Hausansicht von hinten mit Garten", caption: "Von hinten & Garten" },
+      { key: "back-garden-angled", url: "https://i.imgur.com/XtvPttR.jpg", alt: "Hausansicht von hinten mit Garten, seitlich", caption: "Von hinten & Garten (seitlich)" },
+      { key: "aerial", url: "https://i.imgur.com/eY46J4d.jpg", alt: "Luftaufnahme des Hauses von oben", caption: "Von oben" },
     ],
 
     // 360°-Foto (Equirectangular, Seitenverhältnis 2:1) – Direkt-Link zur Bilddatei.
-    panoramaUrl: "",
+    panoramaUrl: "https://i.imgur.com/aErbpT4.jpg",
 
     // Drohnen-Rundflug-Video (POI-Umkreisung ums Haus) – Embed-Link eintragen.
     // Beispiel YouTube: "https://www.youtube.com/embed/VIDEO_ID"
