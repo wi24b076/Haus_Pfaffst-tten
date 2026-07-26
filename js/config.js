@@ -123,6 +123,7 @@ const CONTENT = {
         { title: "Wohnzimmer", url: "media/fotos/wohnzimmer-1.jpg" },
         { title: "Wohnzimmer", url: "media/fotos/wohnzimmer-2.jpg" },
         { title: "Panoramafenster", url: "media/fotos/panoramafenster.jpg" },
+        { title: "Schrank", url: "media/fotos/schrank.jpg" },
       ],
     },
     {
@@ -158,7 +159,6 @@ const CONTENT = {
         { title: "Schlafzimmer", url: "media/fotos/schlafzimmer-1.jpg" },
         { title: "Schlafzimmer", url: "media/fotos/schlafzimmer-2.jpg" },
         { title: "Schlafzimmer", url: "media/fotos/schlafzimmer-3.jpg" },
-        { title: "Begehbarer Schrank", url: "media/fotos/schrank.jpg" },
         { title: "Schrankraum", url: "media/fotos/schrankraum.jpg" },
       ],
     },
