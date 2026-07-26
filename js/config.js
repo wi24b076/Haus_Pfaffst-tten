@@ -43,7 +43,7 @@ const CONTENT = {
     "2 WCs",
     "3 Schlafzimmer, 2 begehbare Schränke",
     "Offene Küche & Esszimmer",
-    "Wohnzimmer mit Panoramafenster zu den Wienerbergen",
+    "Wohnzimmer mit Panoramafenster zu den Weinbergen",
     "Überdachte Terrasse, begehbar von Wohnzimmer & Esszimmer",
   ],
 
