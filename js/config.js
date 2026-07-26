@@ -9,8 +9,9 @@ const CONTENT = {
   title: "Ein Wohlfühl-Bungalow in Pfaffstätten",
   subtitle: "Einziehen und wohlfühlen!",
   location: "Pfaffstätten, Niederösterreich",
-  // TODO: genaue Adresse eintragen, sobald gewünscht (z.B. für Karte)
-  address: "",
+  // Genaue Adresse ist hinterlegt, wird aber (noch) NICHT öffentlich auf der
+  // Seite angezeigt - siehe Rückfrage zum Thema Privatsphäre/Sicherheit.
+  address: "Franz Josef-Straße 6, 2511 Pfaffstätten",
   price: "Preis auf Anfrage", // TODO: Kaufpreis eintragen
 
   // --- Eckdaten (leer lassen = wird auf der Seite ausgeblendet) ---
@@ -68,11 +69,10 @@ const CONTENT = {
   },
 
   // --- Kontakt ---
-  // TODO: gewünschte Kontaktdaten eintragen.
   contact: {
-    name: "",
-    email: "",
-    phone: "",
+    name: "Friederike Fiala",
+    email: "friederike.fiala@aon.at",
+    phone: "+43 676 338 08 72",
   },
 
   // --- Pläne (Grundrisse als PDF) ---
