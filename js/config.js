@@ -74,7 +74,7 @@ const CONTENT = {
   // Leer lassen = kein Tracking eingebunden. Statistik-Dashboard danach unter
   // https://DEIN-CODE.goatcounter.com (einloggen).
   analytics: {
-    goatcounterCode: "",
+    goatcounterCode: "pyewaked",
   },
 
   // --- Kontakt ---
