@@ -8,9 +8,8 @@ const CONTENT = {
   // --- Kopfzeile / Hero ---
   title: "Ein Wohlfühl-Bungalow in Pfaffstätten",
   subtitle: "Einziehen und wohlfühlen!",
-  location: "Pfaffstätten, Niederösterreich",
-  // Genaue Adresse ist hinterlegt, wird aber (noch) NICHT öffentlich auf der
-  // Seite angezeigt - siehe Rückfrage zum Thema Privatsphäre/Sicherheit.
+  // Wird oben rechts unter dem Titel angezeigt.
+  location: "Franz Josef-Straße 6, 2511 Pfaffstätten, Niederösterreich",
   address: "Franz Josef-Straße 6, 2511 Pfaffstätten",
   price: "Preis auf Anfrage", // TODO: Kaufpreis eintragen
 

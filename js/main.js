@@ -292,7 +292,7 @@
       autoLoad: autoLoad,
       compass: false,
       showZoomCtrl: true,
-      title: "360°-Rundgang",
+      title: "360°-Ausblick",
     });
   }
 
