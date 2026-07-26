@@ -6,8 +6,8 @@
 
 const CONTENT = {
   // --- Kopfzeile / Hero ---
-  title: "Haus in Pfaffstätten",
-  subtitle: "Frisch renoviertes Einfamilienhaus mit Garten",
+  title: "Ein Wohlfühl-Bungalow in Pfaffstätten",
+  subtitle: "Einziehen und wohlfühlen!",
   location: "Pfaffstätten, Niederösterreich",
   // TODO: genaue Adresse eintragen, sobald gewünscht (z.B. für Karte)
   address: "",
@@ -15,27 +15,57 @@ const CONTENT = {
 
   // --- Eckdaten (leer lassen = wird auf der Seite ausgeblendet) ---
   facts: {
-    wohnflaeche: "", // z.B. "140 m²"
-    grundstueck: "", // z.B. "600 m²"
-    zimmer: "", // z.B. "5"
-    schlafzimmer: "",
-    baeder: "",
-    baujahr: "",
-    renovierungsjahr: "", // Jahr der Fassaden-/Wärmepumpen-Renovierung
+    wohnflaeche: "123 m²",
+    grundstueck: "617 m²",
+    zimmer: "", // im Text nicht als Gesamtzahl angegeben
+    schlafzimmer: "3",
+    baeder: "2 WCs",
+    baujahr: "1980",
+    renovierungsjahr: "2024/2025",
   },
 
   // --- Highlights (Badges unter dem Hero) ---
   highlights: [
-    { icon: "🏠", text: "Kürzlich frisch renoviert" },
+    { icon: "🏠", text: "Komplett saniert 2024/25" },
     { icon: "🧱", text: "Neue Fassade" },
-    { icon: "♨️", text: "Neue Wärmepumpe" },
-    { icon: "🌳", text: "Eigener Garten" },
+    { icon: "♨️", text: "Neue Luftwärmepumpe" },
+    { icon: "🔆", text: "PV-vorbereitet" },
+    { icon: "🔒", text: "Fingerprint-Eingang" },
+    { icon: "🌳", text: "Garten & Terrasse" },
   ],
 
-  // --- Geschichte & Renovierungen (Fließtext) ---
-  // TODO: wird von dir noch geliefert – Platzhalter bis dahin.
-  history: `Die Geschichte dieses Hauses sowie Details zu den durchgeführten
-    Renovierungen (Fassade, Wärmepumpe u.a.) folgen in Kürze.`,
+  // --- Ausstattung & Räume ---
+  ausstattung: [
+    "Bungalow mit Möglichkeit eines Dachausbaus",
+    "Keller (teilunterkellert) mit 3 Räumen & Waschküche",
+    "Garage mit direktem Durchgang zum Haus",
+    "Vorzimmer",
+    "2 WCs",
+    "3 Schlafzimmer, 2 begehbare Schränke",
+    "Offene Küche & Esszimmer",
+    "Wohnzimmer mit Panoramafenster zu den Wienerbergen",
+    "Überdachte Terrasse, begehbar von Wohnzimmer & Esszimmer",
+  ],
+
+  // --- Geschichte & Renovierungen ---
+  history: {
+    intro: "Im Zeitraum von Oktober 2024 bis März 2025 wurde das Haus komplett saniert:",
+    items: [
+      "Komplette Elektrik neu, inkl. Vorbereitung für PV-Anlage",
+      "Alle Leitungen im ganzen Haus neu",
+      "Neue Luftwärmepumpe",
+      "Fassade komplett neu",
+      "Wärmedämmung am Dachboden mit Fassade erneuert",
+      "Berechnung Generalsanierung vom Baumeister vorhanden",
+      "Energieausweis vorhanden",
+      "Neue Einbauküche (XXXLutz)",
+      "Bäder, WC, Duschen, Waschbecken & Armaturen komplett neu",
+      "Jalousien mit Alexa steuerbar",
+      "Eingangstüre mit Fingerprint, Code & Schlüssel",
+      "Blitzableiter komplett neu",
+    ],
+    note: "Für alle Arbeiten liegen Rechnungen und Garantien vor.",
+  },
 
   // --- Kontakt ---
   // TODO: gewünschte Kontaktdaten eintragen.
@@ -44,6 +74,16 @@ const CONTENT = {
     email: "",
     phone: "",
   },
+
+  // --- Pläne (Grundrisse als PDF) ---
+  plaene: [
+    { title: "Erdgeschoss", url: "media/plaene/Grundriss-Erdgeschoss.pdf" },
+    { title: "Keller", url: "media/plaene/Grundriss-Keller.pdf" },
+    { title: "Ansicht & Schnitt A-A", url: "media/plaene/Ansicht-und-Schnitt.pdf" },
+    { title: "Schnitt A-A (Detail)", url: "media/plaene/Schnitt-AA.pdf" },
+    // media/plaene/Grundriss-Erdgeschoss-markiert.pdf liegt im Repo, ist aber
+    // (noch) nicht verlinkt - unklare farbige Markierungen, siehe Rückfrage.
+  ],
 
   // --- Medien ---
   // Alle Fotos/Videos sind zu groß für Git und werden extern gehostet
