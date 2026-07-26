@@ -403,6 +403,24 @@ a { color: inherit; }
   .details-grid { grid-template-columns: 1fr; }
 }
 
+/* Innenräume (kategorisierte Galerie) */
+.room-group { margin-bottom: 2.4em; }
+.room-group:last-child { margin-bottom: 0; }
+.room-group h3 {
+  font-size: 1.05rem;
+  color: var(--color-accent);
+  margin-bottom: 0.7em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid var(--color-border);
+}
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8em;
+}
+.room-grid .gallery-item { aspect-ratio: 1 / 1; }
+.room-grid .gallery-item figcaption { font-size: 0.75em; padding: 0.5em 0.7em; }
+
 /* Pläne */
 .plaene-list {
   display: grid;
