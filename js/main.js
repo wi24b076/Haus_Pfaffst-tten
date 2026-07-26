@@ -116,6 +116,22 @@
     historyNote.remove();
   }
 
+  // Pläne
+  const plaeneList = document.getElementById("plaene-list");
+  if (c.plaene && c.plaene.length) {
+    c.plaene.forEach((plan) => {
+      const a = document.createElement("a");
+      a.className = "plan-card";
+      a.href = plan.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.innerHTML = `<span class="plan-icon">PDF öffnen ↗</span><span class="plan-title">${plan.title}</span>`;
+      plaeneList.appendChild(a);
+    });
+  } else {
+    plaeneList.innerHTML = `<p class="contact-placeholder">Pläne folgen in Kürze.</p>`;
+  }
+
   // Contact
   const contactInfo = document.getElementById("contact-info");
   const rows = [];

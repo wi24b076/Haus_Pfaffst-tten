@@ -75,6 +75,16 @@ const CONTENT = {
     phone: "",
   },
 
+  // --- Pläne (Grundrisse als PDF) ---
+  plaene: [
+    { title: "Erdgeschoss", url: "media/plaene/Grundriss-Erdgeschoss.pdf" },
+    { title: "Keller", url: "media/plaene/Grundriss-Keller.pdf" },
+    { title: "Ansicht & Schnitt A-A", url: "media/plaene/Ansicht-und-Schnitt.pdf" },
+    { title: "Schnitt A-A (Detail)", url: "media/plaene/Schnitt-AA.pdf" },
+    // media/plaene/Grundriss-Erdgeschoss-markiert.pdf liegt im Repo, ist aber
+    // (noch) nicht verlinkt - unklare farbige Markierungen, siehe Rückfrage.
+  ],
+
   // --- Medien ---
   // Alle Fotos/Videos sind zu groß für Git und werden extern gehostet
   // (z.B. Imgur/eigener Cloud-Speicher für Fotos, YouTube "nicht gelistet"
