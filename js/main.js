@@ -108,6 +108,35 @@
     ausstattungList.outerHTML = `<p class="contact-placeholder">Ausstattungsdetails folgen in Kürze.</p>`;
   }
 
+  // Energieausweis
+  const energyBlock = document.getElementById("energy-block");
+  if (c.energyCertificate && c.energyCertificate.classes && c.energyCertificate.classes.length) {
+    const title = document.createElement("div");
+    title.className = "energy-block-title";
+    title.textContent = "Energieausweis";
+    const badges = document.createElement("div");
+    badges.className = "energy-badges";
+    c.energyCertificate.classes.forEach((entry) => {
+      const badge = document.createElement("div");
+      badge.className = "energy-badge";
+      badge.dataset.class = entry.value;
+      badge.innerHTML = `<span class="chip">${entry.value}</span><span class="name">${entry.label}</span>`;
+      badges.appendChild(badge);
+    });
+    energyBlock.append(title, badges);
+    if (c.energyCertificate.url) {
+      const link = document.createElement("a");
+      link.className = "energy-link";
+      link.href = c.energyCertificate.url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = "Vollständigen Energieausweis öffnen (PDF) ↗";
+      energyBlock.appendChild(link);
+    }
+  } else {
+    energyBlock.remove();
+  }
+
   // Geschichte & Renovierungen
   const historyIntro = document.getElementById("history-intro");
   const historyList = document.getElementById("history-list");

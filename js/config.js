@@ -67,6 +67,17 @@ const CONTENT = {
     note: "Für alle Arbeiten liegen Rechnungen und Garantien vor.",
   },
 
+  // --- Energieausweis (Klassen A++ bis G, wie auf dem offiziellen Ausweis) ---
+  energyCertificate: {
+    classes: [
+      { label: "HWB", value: "C" },
+      { label: "PEB", value: "B" },
+      { label: "CO₂", value: "A" },
+      { label: "fGEE", value: "B" },
+    ],
+    url: "media/plaene/Energieausweis.pdf",
+  },
+
   // --- Besucherzähler (optional) ---
   // Kostenloser Account auf https://www.goatcounter.com/signup, dort einen
   // Site-Code wählen (z.B. "haus-pfaffstaetten") und hier eintragen.

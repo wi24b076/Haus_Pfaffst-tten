@@ -372,8 +372,65 @@ a { color: inherit; }
 }
 .fact .value { font-size: 1.1em; }
 
+.details-column { display: flex; flex-direction: column; gap: 1.6em; }
 .details-text { display: flex; flex-direction: column; gap: 2.2em; }
 .details-block h3 { font-size: 1.15rem; color: var(--color-accent); }
+
+/* Energieausweis */
+.energy-block {
+  border: 1px solid var(--color-border);
+  background: var(--color-panel);
+  padding: 1.2em 1.3em;
+}
+.energy-block-title {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.78em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.8em;
+}
+.energy-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  margin-bottom: 1em;
+}
+.energy-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.energy-badge .chip {
+  width: 2.1em;
+  height: 2.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1em;
+  color: #1a1a1a;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+.energy-badge .name { font-size: 0.85em; color: var(--color-muted); }
+.energy-badge[data-class="A++"] .chip, .energy-badge[data-class="A+"] .chip { background: #00953a; color: #fff; }
+.energy-badge[data-class="A"] .chip { background: #8dc63f; }
+.energy-badge[data-class="B"] .chip { background: #ffe000; }
+.energy-badge[data-class="C"] .chip { background: #ffc700; }
+.energy-badge[data-class="D"] .chip { background: #fdb813; }
+.energy-badge[data-class="E"] .chip { background: #f7941d; color: #fff; }
+.energy-badge[data-class="F"] .chip { background: #f0592b; color: #fff; }
+.energy-badge[data-class="G"] .chip { background: #ed1c24; color: #fff; }
+.energy-link {
+  display: inline-block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.9em;
+  text-decoration: underline;
+  padding-top: 0.8em;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+}
 
 .plain-list {
   margin: 0;
