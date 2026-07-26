@@ -85,6 +85,97 @@ const CONTENT = {
     // (noch) nicht verlinkt - unklare farbige Markierungen, siehe Rückfrage.
   ],
 
+  // --- Weitere Eindrücke (alle Innenraum-/Zusatzfotos, nach Räumen gruppiert) ---
+  innenraeume: [
+    {
+      label: "Außenansicht",
+      items: [
+        { title: "Außenansicht", url: "media/fotos/aussenansicht-2.jpg" },
+        { title: "Außenansicht", url: "media/fotos/aussenansicht-3.jpg" },
+        { title: "Außenansicht", url: "media/fotos/aussenansicht-5.jpg" },
+        { title: "Außenansicht", url: "media/fotos/aussenansicht-8.jpg" },
+        { title: "Von der Straße", url: "media/fotos/haus-von-strasse.jpg" },
+      ],
+    },
+    {
+      label: "Garten & Terrasse",
+      items: [
+        { title: "Garten", url: "media/fotos/garten-1.jpg" },
+        { title: "Garten", url: "media/fotos/garten-2.jpg" },
+        { title: "Terrasse", url: "media/fotos/terrasse-1.jpg" },
+        { title: "Terrasse", url: "media/fotos/terrasse-2.jpg" },
+        { title: "Terrasse", url: "media/fotos/terrasse-5.jpg" },
+        { title: "Terrasse", url: "media/fotos/terrasse-7.jpg" },
+        { title: "Terrasse", url: "media/fotos/terrasse-8.jpg" },
+      ],
+    },
+    {
+      label: "Wohnzimmer",
+      items: [
+        { title: "Wohnzimmer", url: "media/fotos/wohnzimmer-1.jpg" },
+        { title: "Wohnzimmer", url: "media/fotos/wohnzimmer-2.jpg" },
+        { title: "Panoramafenster", url: "media/fotos/panoramafenster.jpg" },
+      ],
+    },
+    {
+      label: "Küche & Esszimmer",
+      items: [
+        { title: "Küche", url: "media/fotos/kueche-gesamt.jpg" },
+        { title: "Herd & Backofen", url: "media/fotos/kueche-herd-backofen.jpg" },
+        { title: "Kühlschrank", url: "media/fotos/kueche-kuehlschrank.jpg" },
+        { title: "Küche", url: "media/fotos/kueche-links.jpg" },
+        { title: "Küche", url: "media/fotos/kueche-rechts.jpg" },
+        { title: "Küche", url: "media/fotos/kueche-regal.jpg" },
+        { title: "Spüle", url: "media/fotos/kueche-waschbecken.jpg" },
+        { title: "Kücheninsel", url: "media/fotos/kuecheninsel.jpg" },
+        { title: "Armaturen", url: "media/fotos/kueche-amaturen.jpg" },
+        { title: "Esstisch", url: "media/fotos/esstisch.jpg" },
+      ],
+    },
+    {
+      label: "Bad & WC",
+      items: [
+        { title: "Bad", url: "media/fotos/bad-wand.jpg" },
+        { title: "Bad", url: "media/fotos/bad-waschbecken-1.jpg" },
+        { title: "Bad", url: "media/fotos/bad-waschbecken-2.jpg" },
+        { title: "Dusche", url: "media/fotos/dusche.jpg" },
+        { title: "WC", url: "media/fotos/wc-2.jpg" },
+        { title: "WC", url: "media/fotos/wc-geschlossen.jpg" },
+        { title: "WC", url: "media/fotos/wc-offen.jpg" },
+      ],
+    },
+    {
+      label: "Schlafzimmer",
+      items: [
+        { title: "Schlafzimmer", url: "media/fotos/schlafzimmer-1.jpg" },
+        { title: "Schlafzimmer", url: "media/fotos/schlafzimmer-2.jpg" },
+        { title: "Schlafzimmer", url: "media/fotos/schlafzimmer-3.jpg" },
+        { title: "Begehbarer Schrank", url: "media/fotos/schrank.jpg" },
+        { title: "Schrankraum", url: "media/fotos/schrankraum.jpg" },
+      ],
+    },
+    {
+      label: "Vorzimmer & Eingang",
+      items: [
+        { title: "Vorzimmer", url: "media/fotos/vorzimmer-1.jpg" },
+        { title: "Vorzimmer", url: "media/fotos/vorzimmer-2.jpg" },
+        { title: "Vorzimmer", url: "media/fotos/vorzimmer-3.jpg" },
+        { title: "Eingang", url: "media/fotos/eingang.jpg" },
+        { title: "Eingangstüre", url: "media/fotos/eingangstuere.jpg" },
+      ],
+    },
+    {
+      label: "Garage & Nebenräume",
+      items: [
+        { title: "Garage", url: "media/fotos/garage.jpg" },
+        { title: "Durchgang Garage-Haus", url: "media/fotos/garage-durchgang.jpg" },
+        { title: "Tür zur Garage", url: "media/fotos/tuer-garage.jpg" },
+        { title: "Abstellraum", url: "media/fotos/abstellraum.jpg" },
+        { title: "Luftwärmepumpe", url: "media/fotos/waermepumpe.jpg" },
+      ],
+    },
+  ],
+
   // --- Medien ---
   // Alle Fotos/Videos sind zu groß für Git und werden extern gehostet
   // (z.B. Imgur/eigener Cloud-Speicher für Fotos, YouTube "nicht gelistet"

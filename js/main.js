@@ -144,32 +144,62 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // --- Galerie: Kacheln aus config.js rendern ---
+  // --- Galerie-Kachel erzeugen (wiederverwendet für Hero-Galerie & Innenräume) ---
+  function createGalleryItem(url, alt, caption) {
+    const figure = document.createElement("figure");
+    figure.className = "gallery-item";
+    figure.dataset.full = url;
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = alt;
+    img.loading = "lazy";
+    withFallback(img);
+    const figcaption = document.createElement("figcaption");
+    figcaption.textContent = caption;
+    figure.append(img, figcaption);
+    return figure;
+  }
+
+  // --- Hero-Galerie: Kacheln aus config.js rendern ---
   const galleryEl = document.getElementById("gallery");
   const galleryItems = c.media.gallery.filter((item) => item.url);
   if (galleryItems.length) {
     galleryItems.forEach((item) => {
-      const figure = document.createElement("figure");
-      figure.className = "gallery-item";
-      figure.dataset.full = item.url;
-      const img = document.createElement("img");
-      img.src = item.url;
-      img.alt = item.alt;
-      img.loading = "lazy";
-      withFallback(img);
-      const figcaption = document.createElement("figcaption");
-      figcaption.textContent = item.caption;
-      figure.append(img, figcaption);
-      galleryEl.appendChild(figure);
+      galleryEl.appendChild(createGalleryItem(item.url, item.alt, item.caption));
     });
   } else {
     galleryEl.innerHTML = `<p class="contact-placeholder">Fotos folgen in Kürze.</p>`;
   }
 
-  // --- Galerie Lightbox ---
+  // --- Innenräume: nach Kategorie gruppierte Galerien ---
+  const innenraeumeEl = document.getElementById("innenraeume-list");
+  if (c.innenraeume && c.innenraeume.length) {
+    c.innenraeume.forEach((group) => {
+      const items = group.items.filter((item) => item.url);
+      if (!items.length) return;
+      const wrapper = document.createElement("div");
+      wrapper.className = "room-group";
+      const h3 = document.createElement("h3");
+      h3.textContent = group.label;
+      const grid = document.createElement("div");
+      grid.className = "room-grid gallery";
+      items.forEach((item) => {
+        grid.appendChild(createGalleryItem(item.url, item.title, item.title));
+      });
+      wrapper.append(h3, grid);
+      innenraeumeEl.appendChild(wrapper);
+    });
+    if (!innenraeumeEl.children.length) {
+      innenraeumeEl.innerHTML = `<p class="contact-placeholder">Weitere Fotos folgen in Kürze.</p>`;
+    }
+  } else {
+    innenraeumeEl.innerHTML = `<p class="contact-placeholder">Weitere Fotos folgen in Kürze.</p>`;
+  }
+
+  // --- Galerie Lightbox (gilt für Hero-Galerie & Innenräume) ---
   const lightbox = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightbox-image");
-  galleryEl.querySelectorAll(".gallery-item").forEach((item) => {
+  document.querySelectorAll(".gallery-item").forEach((item) => {
     item.addEventListener("click", () => {
       lightboxImage.src = item.dataset.full;
       lightboxImage.alt = item.querySelector("img").alt;
