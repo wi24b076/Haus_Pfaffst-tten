@@ -86,8 +86,35 @@
     factsList.innerHTML = `<p class="contact-placeholder">Eckdaten (Wohnfläche, Zimmer, Baujahr …) folgen in Kürze.</p>`;
   }
 
-  // History
-  document.getElementById("history-text").textContent = c.history.trim();
+  // Ausstattung
+  const ausstattungList = document.getElementById("ausstattung-list");
+  if (c.ausstattung && c.ausstattung.length) {
+    c.ausstattung.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ausstattungList.appendChild(li);
+    });
+  } else {
+    ausstattungList.outerHTML = `<p class="contact-placeholder">Ausstattungsdetails folgen in Kürze.</p>`;
+  }
+
+  // Geschichte & Renovierungen
+  const historyIntro = document.getElementById("history-intro");
+  const historyList = document.getElementById("history-list");
+  const historyNote = document.getElementById("history-note");
+  if (c.history && c.history.items && c.history.items.length) {
+    historyIntro.textContent = c.history.intro || "";
+    c.history.items.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      historyList.appendChild(li);
+    });
+    historyNote.textContent = c.history.note || "";
+  } else {
+    historyIntro.outerHTML = `<p class="contact-placeholder">Geschichte &amp; Renovierungen folgen in Kürze.</p>`;
+    historyList.remove();
+    historyNote.remove();
+  }
 
   // Contact
   const contactInfo = document.getElementById("contact-info");
