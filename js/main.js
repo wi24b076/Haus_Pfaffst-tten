@@ -145,7 +145,9 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 
   // --- Galerie-Kachel erzeugen (wiederverwendet für Hero-Galerie & Innenräume) ---
-  function createGalleryItem(url, alt, caption) {
+  // Keine sichtbare Bildunterschrift mehr - die Kategorie-Überschrift reicht,
+  // "alt" bleibt für Screenreader/Lightbox erhalten.
+  function createGalleryItem(url, alt) {
     const figure = document.createElement("figure");
     figure.className = "gallery-item";
     figure.dataset.full = url;
@@ -154,9 +156,7 @@
     img.alt = alt;
     img.loading = "lazy";
     withFallback(img);
-    const figcaption = document.createElement("figcaption");
-    figcaption.textContent = caption;
-    figure.append(img, figcaption);
+    figure.appendChild(img);
     return figure;
   }
 
@@ -165,7 +165,7 @@
   const galleryItems = c.media.gallery.filter((item) => item.url);
   if (galleryItems.length) {
     galleryItems.forEach((item) => {
-      galleryEl.appendChild(createGalleryItem(item.url, item.alt, item.caption));
+      galleryEl.appendChild(createGalleryItem(item.url, item.alt));
     });
   } else {
     galleryEl.innerHTML = `<p class="contact-placeholder">Fotos folgen in Kürze.</p>`;
@@ -184,7 +184,7 @@
       const grid = document.createElement("div");
       grid.className = "room-grid gallery";
       items.forEach((item) => {
-        grid.appendChild(createGalleryItem(item.url, item.title, item.title));
+        grid.appendChild(createGalleryItem(item.url, item.title));
       });
       wrapper.append(h3, grid);
       innenraeumeEl.appendChild(wrapper);
@@ -196,15 +196,32 @@
     innenraeumeEl.innerHTML = `<p class="contact-placeholder">Weitere Fotos folgen in Kürze.</p>`;
   }
 
-  // --- Galerie Lightbox (gilt für Hero-Galerie & Innenräume) ---
+  // --- Galerie Lightbox mit Vor/Zurück (gilt für Hero-Galerie & Innenräume,
+  // eine durchgehende Reihenfolge in Dokumentenreihenfolge) ---
   const lightbox = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightbox-image");
-  document.querySelectorAll(".gallery-item").forEach((item) => {
-    item.addEventListener("click", () => {
-      lightboxImage.src = item.dataset.full;
-      lightboxImage.alt = item.querySelector("img").alt;
-      lightbox.classList.remove("hidden");
-    });
+  const allGalleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+  let lightboxIndex = -1;
+
+  function openLightboxAt(index) {
+    if (!allGalleryItems.length) return;
+    lightboxIndex = (index + allGalleryItems.length) % allGalleryItems.length;
+    const item = allGalleryItems[lightboxIndex];
+    lightboxImage.src = item.dataset.full;
+    lightboxImage.alt = item.querySelector("img").alt;
+    lightbox.classList.remove("hidden");
+  }
+
+  allGalleryItems.forEach((item, index) => {
+    item.addEventListener("click", () => openLightboxAt(index));
+  });
+  document.getElementById("lightbox-prev").addEventListener("click", (e) => {
+    e.stopPropagation();
+    openLightboxAt(lightboxIndex - 1);
+  });
+  document.getElementById("lightbox-next").addEventListener("click", (e) => {
+    e.stopPropagation();
+    openLightboxAt(lightboxIndex + 1);
   });
   document.getElementById("lightbox-close").addEventListener("click", () => {
     lightbox.classList.add("hidden");
@@ -216,6 +233,10 @@
     if (e.key === "Escape") {
       lightbox.classList.add("hidden");
       document.getElementById("panorama-modal").classList.add("hidden");
+    }
+    if (!lightbox.classList.contains("hidden")) {
+      if (e.key === "ArrowRight") openLightboxAt(lightboxIndex + 1);
+      if (e.key === "ArrowLeft") openLightboxAt(lightboxIndex - 1);
     }
   });
 
@@ -261,7 +282,7 @@
       autoLoad: autoLoad,
       compass: false,
       showZoomCtrl: true,
-      title: "360°-Rundumblick",
+      title: "360°-Rundgang",
     });
   }
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Haus in Pfaffstätten – zu verkaufen</title>
-<meta name="description" content="Frisch renoviertes Einfamilienhaus in Pfaffstätten mit Garten, neuer Fassade und Wärmepumpe – jetzt zu verkaufen." />
+<title>Ein Wohlfühl-Bungalow in Pfaffstätten – zu verkaufen</title>
+<meta name="description" content="Komplett sanierter Bungalow in Pfaffstätten mit Garten, Terrasse und Garage – neue Fassade, neue Luftwärmepumpe, neue Küche und Bäder. Jetzt zu verkaufen." />
 <link rel="stylesheet" href="css/styles.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
 </head>
@@ -18,7 +18,7 @@
     </button>
     <nav id="nav" class="nav">
       <a href="#fotos">Fotos</a>
-      <a href="#innenraeume">Innenräume</a>
+      <a href="#innenraeume">Eindrücke</a>
       <a href="#rundflug">Rundflug</a>
       <a href="#rundgang">360°-Rundgang</a>
       <a href="#details">Details</a>
@@ -32,8 +32,8 @@
   <img id="hero-image" class="hero-bg" src="" alt="Hausansicht von vorne" />
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1 id="hero-title">Haus in Pfaffstätten</h1>
-    <p id="hero-subtitle">Frisch renoviertes Einfamilienhaus mit Garten</p>
+    <h1 id="hero-title">Ein Wohlfühl-Bungalow in Pfaffstätten</h1>
+    <p id="hero-subtitle">Einziehen und wohlfühlen!</p>
     <p id="hero-location" class="hero-location">📍 Pfaffstätten, Niederösterreich</p>
     <div class="hero-actions">
       <a href="#fotos" class="btn btn-primary">Fotos ansehen</a>
@@ -48,6 +48,7 @@
 
 <section id="fotos" class="section">
   <h2>Fotos</h2>
+  <p class="section-lead">Erste Eindrücke von außen.</p>
   <div id="gallery" class="gallery"></div>
 </section>
 
@@ -64,7 +65,7 @@
 </section>
 
 <section id="rundgang" class="section">
-  <h2>360°-Rundumblick</h2>
+  <h2>360°-Rundgang</h2>
   <p class="section-lead">Schau dich am Grundstück in jede Richtung um.</p>
   <div id="panorama-wrapper" class="panorama-wrapper">
     <div id="panorama" class="panorama"></div>
@@ -77,6 +78,7 @@
 
 <section id="details" class="section">
   <h2>Details</h2>
+  <p class="section-lead">Eckdaten, Ausstattung und alle durchgeführten Renovierungen.</p>
   <div class="details-grid">
     <div id="facts-list" class="facts-list"></div>
     <div class="details-text">
@@ -111,8 +113,10 @@
 </footer>
 
 <div id="lightbox" class="lightbox hidden">
-  <button id="lightbox-close" class="lightbox-close" type="button">✕</button>
+  <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Schließen">✕</button>
+  <button id="lightbox-prev" class="lightbox-nav lightbox-prev" type="button" aria-label="Vorheriges Bild">‹</button>
   <img id="lightbox-image" src="" alt="" />
+  <button id="lightbox-next" class="lightbox-nav lightbox-next" type="button" aria-label="Nächstes Bild">›</button>
 </div>
 
 <div id="panorama-modal" class="panorama-modal hidden">
