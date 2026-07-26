@@ -3,6 +3,16 @@
 
   const c = CONTENT;
 
+  // --- Besucherzähler (GoatCounter, datenschutzfreundlich, kein Cookie-Banner
+  // nötig) - nur einbinden, wenn ein Site-Code hinterlegt ist. ---
+  if (c.analytics && c.analytics.goatcounterCode) {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "//gc.zgo.at/count.js";
+    script.dataset.goatcounter = `https://${c.analytics.goatcounterCode}.goatcounter.com/count`;
+    document.head.appendChild(script);
+  }
+
   // --- Bild-Fallback: fehlt noch eine URL oder ist sie nicht erreichbar,
   // zeigen wir einen Platzhalter statt eines kaputten Bild-Icons. Sobald
   // die echte URL in js/config.js eingetragen ist, erscheint sie automatisch. ---

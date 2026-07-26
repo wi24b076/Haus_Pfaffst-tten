@@ -68,6 +68,15 @@ const CONTENT = {
     note: "Für alle Arbeiten liegen Rechnungen und Garantien vor.",
   },
 
+  // --- Besucherzähler (optional) ---
+  // Kostenloser Account auf https://www.goatcounter.com/signup, dort einen
+  // Site-Code wählen (z.B. "haus-pfaffstaetten") und hier eintragen.
+  // Leer lassen = kein Tracking eingebunden. Statistik-Dashboard danach unter
+  // https://DEIN-CODE.goatcounter.com (einloggen).
+  analytics: {
+    goatcounterCode: "pyewaked",
+  },
+
   // --- Kontakt ---
   contact: {
     name: "Friederike Fiala",
